@@ -1,0 +1,13 @@
+<?php
+
+namespace $NAMESPACE$;
+
+use Illuminate\Queue\SerializesModels;
+
+class $CLASS$
+{
+    public function __construct()
+    {
+        //
+    }
+}

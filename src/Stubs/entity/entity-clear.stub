@@ -1,0 +1,15 @@
+<?php
+
+namespace $NAMESPACE$\Domain\Entity;
+
+class $CLASS$
+{
+    public function __construct(private string $uuid)
+    {
+    }
+
+    public function uuid(): string
+    {
+        return $this->uuid;
+    }
+}

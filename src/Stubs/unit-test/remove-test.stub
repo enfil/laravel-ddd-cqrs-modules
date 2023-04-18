@@ -1,0 +1,18 @@
+<?php
+
+namespace $NAMESPACE$\Test\Codeception\tests\unit\$CLASS$;
+
+use Codeception\Test\Unit;
+
+class Remove$CLASS$Test extends Unit
+{
+    public function testSuccess(): void
+    {
+        $this->assertTrue(true);
+    }
+
+    public function testFail(): void
+    {
+        $this->assertTrue(true);
+    }
+}

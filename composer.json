@@ -1,0 +1,32 @@
+{
+    "name": "enfil/laravel-ddd-cqrs-modules",
+    "description": "description",
+    "minimum-stability": "stable",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Enfil",
+            "email": "enfilg@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^8.0",
+        "enfil/laravel-helpers": "dev-master",
+        "nwidart/laravel-modules": "10.*"
+    },
+    "require-dev": {
+        "codeception/codeception": "5.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Enfil\\Laravel\\DddCqrs\\Modules\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Enfil\\Laravel\\DddCqrs\\Modules\\LaravelModulesServiceProvider"
+            ]
+        }
+    }
+}

@@ -1,0 +1,13 @@
+<?php
+
+namespace $NAMESPACE$\Infrastructure\Repository;
+
+use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\DB;
+use $NAMESPACE$\Domain\Entity\$CLASS$;
+use $NAMESPACE$\Domain\Repository\$CLASS$RepositoryInterface;
+
+class $CLASS$Repository implements $CLASS$RepositoryInterface
+{
+    //TODO:
+}

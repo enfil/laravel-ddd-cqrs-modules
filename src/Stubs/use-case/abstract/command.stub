@@ -1,0 +1,9 @@
+<?php
+
+namespace $NAMESPACE$\Domain\UseCase\$CLASS$;
+
+use Enfil\Laravel\Helpers\Dto\Hydration\SimpleStatic;
+
+class AbstractCommand extends SimpleStatic
+{
+}

@@ -1,0 +1,16 @@
+<?php
+
+namespace $CLASS_NAMESPACE$;
+
+use Enfil\Laravel\Helpers\Response;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
+
+class $CLASS$ extends Controller
+{
+    public function index(): JsonResponse
+    {
+        return Response\Api::successData(['message' => '$MODULE$ - module index'])->toJson();
+    }
+}

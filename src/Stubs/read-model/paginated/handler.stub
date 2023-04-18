@@ -1,0 +1,31 @@
+<?php
+
+namespace $NAMESPACE$\Infrastructure\ReadModel\$CLASS$\$SUB_NAMESPACE$;
+
+use Enfil\Laravel\Helpers\Pagination\LengthAwarePaginatorConverter;
+use Illuminate\Contracts\Pagination\LengthAwarePaginator;
+use Illuminate\Support\Facades\DB;
+
+class Handler
+{
+    public function execute(Query $query): LengthAwarePaginator
+    {
+        $paginator = $this->databaseQueryResult($query);
+        $paginator->getCollection()->transform(function ($item) {
+            return $this->createDto((array) $item);
+        });
+        return $paginator;
+    }
+
+    protected function createDto(array $data): QueryResultItem
+    {
+        return QueryResultItem::fromArray($data);
+    }
+
+    protected function databaseQueryResult(Query $query): \Illuminate\Pagination\LengthAwarePaginator
+    {
+        return LengthAwarePaginatorConverter::convert(
+            DB::table('$CLASS_SNAKE_NAME$')->paginate($query->max)
+        );
+    }
+}

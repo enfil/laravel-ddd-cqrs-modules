@@ -1,0 +1,18 @@
+<?php
+
+namespace $NAMESPACE$\Domain\Repository;
+
+use $NAMESPACE$\Domain\Entity\$CLASS$;
+
+interface $CLASS$RepositoryInterface
+{
+    public function get(string $uuid): ?$CLASS$;
+
+    public function count(): int;
+
+    public function add($CLASS$ $$CLASS_CAMEL_NAME$): void;
+
+    public function update($CLASS$ $$CLASS_CAMEL_NAME$): void;
+
+    public function remove($CLASS$ $$CLASS_CAMEL_NAME$): void;
+}

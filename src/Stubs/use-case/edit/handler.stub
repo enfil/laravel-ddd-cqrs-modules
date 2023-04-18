@@ -1,0 +1,19 @@
+<?php
+
+namespace $NAMESPACE$\Domain\UseCase\$CLASS$\$SUB_NAMESPACE$;
+
+use $NAMESPACE$\Domain\UseCase\$CLASS$\AbstractCommandHandler;
+use Modules\Blog\Domain\Exception\EntityNotFoundException;
+
+class Handler extends AbstractCommandHandler
+{
+    public function handle(Command $command): void
+    {
+        $$CLASS_CAMEL_NAME$ = $this->repository->get($command->uuid);
+        if (null === $$CLASS_CAMEL_NAME$) {
+            throw new EntityNotFoundException();
+        }
+        //TODO: edit entity
+        $this->repository->update($$CLASS_CAMEL_NAME$);
+    }
+}

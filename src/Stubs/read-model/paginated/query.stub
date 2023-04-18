@@ -1,0 +1,10 @@
+<?php
+
+namespace $NAMESPACE$\Infrastructure\ReadModel\$CLASS$\$SUB_NAMESPACE$;
+
+use Enfil\Laravel\Helpers\Dto\Hydration\SimpleStatic;
+
+class Query extends SimpleStatic
+{
+    public int $max = 10;
+}

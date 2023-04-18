@@ -1,0 +1,15 @@
+<?php
+
+namespace $NAMESPACE$\Domain\UseCase\$CLASS$;
+
+use $NAMESPACE$\Domain\Repository\$CLASS$RepositoryInterface;
+
+abstract class AbstractCommandHandler
+{
+    protected $CLASS$RepositoryInterface $repository;
+
+    public function __construct($CLASS$RepositoryInterface $repository)
+    {
+        $this->repository = $repository;
+    }
+}

@@ -1,0 +1,60 @@
+<?php
+
+namespace $NAMESPACE$;
+
+use Illuminate\Support\ServiceProvider;
+use Illuminate\Database\Eloquent\Factory;
+
+class $CLASS$ extends ServiceProvider
+{
+    /**
+     * @var string $moduleName
+     */
+    protected $moduleName = '$MODULE$';
+
+    /**
+     * @var string $moduleNameLower
+     */
+    protected $moduleNameLower = '$LOWER_NAME$';
+
+    /**
+     * Boot the application events.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        $this->registerConfig();
+        $this->registerRepositories();
+        $this->loadMigrationsFrom(module_path($this->moduleName, '$MIGRATIONS_PATH$'));
+    }
+
+    public function register(): void
+    {
+        $this->app->register(RouteServiceProvider::class);
+    }
+
+    protected function registerConfig(): void
+    {
+        $this->publishes(
+            [
+                module_path($this->moduleName, 'Config/config.php') => config_path($this->moduleNameLower . '.php'),
+            ],
+            'config'
+        );
+        $this->mergeConfigFrom(
+            module_path($this->moduleName, 'Config/config.php'),
+            $this->moduleNameLower
+        );
+    }
+
+    protected function registerRepositories(): void
+    {
+        //TODO: BIND REPOSITORIES $this->app->bind(...Interface, ...);
+    }
+
+    public function provides(): array
+    {
+        return [];
+    }
+}

@@ -1,0 +1,16 @@
+<?php
+
+namespace $NAMESPACE$\Domain\UseCase\$CLASS$\$SUB_NAMESPACE$;
+
+use $NAMESPACE$\Domain\UseCase\$CLASS$\AbstractCommandHandler;
+use $NAMESPACE$\Domain\Entity\$CLASS$;
+
+class Handler extends AbstractCommandHandler
+{
+    public function handle(Command $command): void
+    {
+        $this->repository->add(
+            new $CLASS$($command->uuid)
+        );
+    }
+}

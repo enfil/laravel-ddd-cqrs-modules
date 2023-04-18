@@ -1,0 +1,50 @@
+<?php
+
+namespace $NAMESPACE$\Infrastructure\Repository;
+
+use $NAMESPACE$\Domain\Entity\$CLASS$;
+use $NAMESPACE$\Domain\Repository\$CLASS$RepositoryInterface;
+
+class $CLASS$Repository implements $CLASS$RepositoryInterface
+{
+    private string $table;
+
+    public function __construct()
+    {
+        $this->table = config('$LOWER_NAME$')['tables']['$CLASS_SNAKE_NAME$'] ?? '';
+    }
+
+    public function get(string $uuid): ?$CLASS$
+    {
+        $$CLASS_CAMEL_NAME$ = $CLASS$::query()->find($uuid);
+        if (!$$CLASS_CAMEL_NAME$ instanceof $CLASS$) {
+            return null;
+        }
+        return $$CLASS_CAMEL_NAME$;
+    }
+
+    public function count(): int
+    {
+        return $CLASS$::query()->count();
+    }
+
+    public function add($CLASS$ $$CLASS_CAMEL_NAME$): void
+    {
+        $$CLASS_CAMEL_NAME$->save();
+    }
+
+    public function update($CLASS$ $$CLASS_CAMEL_NAME$): void
+    {
+        $$CLASS_CAMEL_NAME$->save();
+    }
+
+    public function remove($CLASS$ $$CLASS_CAMEL_NAME$): void
+    {
+        $$CLASS_CAMEL_NAME$->delete();
+    }
+
+    public function getTable(): string
+    {
+        return $this->table;
+    }
+}

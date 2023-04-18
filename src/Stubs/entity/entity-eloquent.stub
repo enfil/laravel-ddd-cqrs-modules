@@ -1,0 +1,15 @@
+<?php
+
+namespace $NAMESPACE$\Domain\Entity;
+
+use Illuminate\Database\Eloquent\Model;
+
+class $CLASS$ extends Model
+{
+    protected $fillable = ['uuid'];
+    public function __construct(array $attributes = [])
+    {
+        parent::__construct($attributes);
+        $this->table = config('$SNAKE_NAME$')['tables']['$CLASS_SNAKE_NAME$'] ?? '';
+    }
+}

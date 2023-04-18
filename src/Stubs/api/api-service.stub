@@ -1,0 +1,69 @@
+<?php
+
+namespace $NAMESPACE$\Api;
+
+use Illuminate\Contracts\Pagination\LengthAwarePaginator;
+use $NAMESPACE$\Infrastructure\ReadModel;
+use $NAMESPACE$\Domain\UseCase\$CLASS$;
+
+class $CLASS$Service
+{
+    private ReadModel\$CLASS$\PaginatedList\Handler $paginatedListReader;
+
+    private ReadModel\$CLASS$\SingleItem\Handler $singleItemReader;
+
+    private $CLASS$\Create$CLASS$\Handler $$CLASS_CAMEL_NAME$Creator;
+
+    private $CLASS$\Edit$CLASS$\Handler $$CLASS_CAMEL_NAME$Editor;
+
+    private $CLASS$\Remove$CLASS$\Handler $$CLASS_CAMEL_NAME$Remover;
+
+    public function __construct(
+        ReadModel\$CLASS$\PaginatedList\Handler $paginatedListReader,
+        ReadModel\$CLASS$\SingleItem\Handler $singleItemReader,
+        $CLASS$\Create$CLASS$\Handler $$CLASS_CAMEL_NAME$Creator,
+        $CLASS$\Edit$CLASS$\Handler $$CLASS_CAMEL_NAME$Editor,
+        $CLASS$\Remove$CLASS$\Handler $$CLASS_CAMEL_NAME$Remover
+    ) {
+        $this->paginatedListReader = $paginatedListReader;
+        $this->singleItemReader = $singleItemReader;
+        $this->$CLASS_CAMEL_NAME$Creator = $$CLASS_CAMEL_NAME$Creator;
+        $this->$CLASS_CAMEL_NAME$Editor = $$CLASS_CAMEL_NAME$Editor;
+        $this->$CLASS_CAMEL_NAME$Remover = $$CLASS_CAMEL_NAME$Remover;
+    }
+
+    public function getList(array $data): LengthAwarePaginator
+    {
+        return $this->paginatedListReader->execute(
+            ReadModel\$CLASS$\PaginatedList\Query::fromArray($data)
+        );
+    }
+
+    public function getSingleItem(string $uuid): array
+    {
+        return $this->singleItemReader->execute(
+            ReadModel\$CLASS$\SingleItem\Query::fromArray(['uuid' => $uuid])
+        )->toArray();
+    }
+
+    public function create(array $data): void
+    {
+        $this->$CLASS_CAMEL_NAME$Creator->handle(
+            $CLASS$\Create$CLASS$\Command::fromArray($data)
+        );
+    }
+
+    public function edit(array $data): void
+    {
+        $this->$CLASS_CAMEL_NAME$Editor->handle(
+            $CLASS$\Edit$CLASS$\Command::fromArray($data)
+        );
+    }
+
+    public function remove(string $uuid): void
+    {
+        $this->$CLASS_CAMEL_NAME$Remover->handle(
+            $CLASS$\Remove$CLASS$\Command::fromArray(['uuid' => $uuid])
+        );
+    }
+}

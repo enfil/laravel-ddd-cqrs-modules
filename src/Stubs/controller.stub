@@ -1,0 +1,50 @@
+<?php
+
+namespace $CLASS_NAMESPACE$;
+
+use Enfil\Laravel\Helpers\Response;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Routing\Controller;
+use Modules\$STUDLY_NAME$\Api\$ONLY_NAME$Service;
+use Modules\$STUDLY_NAME$\Presentation\Http\V1\Request;
+
+class $CLASS$ extends Controller
+{
+    private $ONLY_NAME$Service $service;
+
+    public function __construct($ONLY_NAME$Service $service)
+    {
+        $this->service = $service;
+    }
+
+    public function index(Request\$ONLY_NAME$IndexRequest $request): JsonResponse
+    {
+        return Response\Api::successDataPaginated(
+            $request,
+            $this->service->getList($request->getData())
+        )->toJson();
+    }
+
+    public function show(string $uuid): JsonResponse
+    {
+        return Response\Api::successData($this->service->getSingleItem($uuid))->toJson();
+    }
+
+    public function create(Request\$ONLY_NAME$StoreRequest $request): JsonResponse
+    {
+        $this->service->create($request->validated());
+        return Response\Api::created()->toJson();
+    }
+
+    public function edit(Request\$ONLY_NAME$StoreRequest $request): JsonResponse
+    {
+        $this->service->edit($request->validated());
+        return Response\Api::successEmpty()->toJson();
+    }
+
+    public function destroy(string $uuid): JsonResponse
+    {
+        $this->service->remove($uuid);
+        return Response\Api::successEmpty()->toJson();
+    }
+}

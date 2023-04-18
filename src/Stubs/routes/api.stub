@@ -1,0 +1,9 @@
+<?php
+
+use Illuminate\Support\Facades\Route;
+use $MODULE_NAMESPACE$\$STUDLY_NAME$\Presentation\Http\V1\Controller\$STUDLY_NAME$Controller;
+
+Route::prefix('v1')
+    ->group(function () {
+        Route::get('/', [$STUDLY_NAME$Controller::class, 'index']);
+    });

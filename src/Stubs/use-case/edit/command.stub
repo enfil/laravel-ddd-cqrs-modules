@@ -1,0 +1,10 @@
+<?php
+
+namespace $NAMESPACE$\Domain\UseCase\$CLASS$\$SUB_NAMESPACE$;
+
+use Enfil\Laravel\Helpers\Dto\Hydration\SimpleStatic;
+
+class Command extends SimpleStatic
+{
+    public string $uuid;
+}

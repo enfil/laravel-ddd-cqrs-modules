@@ -1,0 +1,25 @@
+<?php
+
+namespace $NAMESPACE$\Infrastructure\ReadModel\$CLASS$\$SUB_NAMESPACE$;
+
+use $NAMESPACE$\Domain\Repository\$CLASS$RepositoryInterface;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
+
+class Handler
+{
+    private $CLASS$RepositoryInterface $repository;
+
+    public function __construct($CLASS$RepositoryInterface $repository)
+    {
+        $this->repository = $repository;
+    }
+
+    public function execute(Query $query): QueryResultItem
+    {
+        $data = $this->repository->get($query->id);
+        if (null === $data) {
+            throw new ModelNotFoundException();
+        }
+        return QueryResultItem::fromArray($data->toArray());
+    }
+}
