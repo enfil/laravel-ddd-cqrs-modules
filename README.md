@@ -3,7 +3,7 @@ To decompose the system, it is proposed to identify bounded business logic conte
 
 Each module should be responsible for one related context and have a defined directory structure that determines the core layers
 
-This package is built on top of [nwidart/laravel-modules](https://github.com/nWidart/laravel-modules) and builds the following module structure:
+This package is built on top of [nwidart/laravel-modules](https://github.com/nWidart/laravel-modules) and generates the following module structure:
 
 **Domain - Domain layer**
 
@@ -78,7 +78,7 @@ Let's call the command.
 
 #### Creating a new module
 ```shell
-php artisan module:make-structure Comments Resource Comment Author
+php artisan module:make-structure Comments Comment Author
 ```
 The command should generate the module structure, create the main entities, repository interfaces, read models, services, controllers, requests, configs, migrations, and one route
 
