@@ -85,5 +85,5 @@ The command should generate the module structure, create the main entities, repo
 Now you can go to the endpoint http://localhost/comments/v1/ and see this message:
 
 ```json
-{"data":{"message":"Blog - module index"}}
+{"data":{"message":"Comment - module index"}}
 ```
